@@ -1,0 +1,26 @@
+logging:
+  level: INFO
+  loggers:
+    com.acme.petlicense: DEBUG
+    org.hibernate.SQL:
+      level: DEBUG
+  appenders:
+    - type: console
+    - type: file
+      currentLogFilename: ./target/logs/petLicenseService.log
+      archivedLogFilenamePattern: ./target/logs/petLicenseService-%d{yyyy-MM-dd}-%i.log.gz
+      archivedFileCount: 10
+      timeZone: UTC
+      maxFileSize: 10MB
+database:
+  driverClass: org.postgresql.Driver
+  user: developer
+  password: developer
+  url: jdbc:postgresql://localhost/petLicense-dev
+  properties:
+    charSet: UTF-8
+    hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate.jdbc.batch_sze: 100
+    hibernate.order_inserts: true
+    hibernate.order_updates: true
+  validationQuery: "/* PetLicenseServer Health Check */ SELECT 1"
