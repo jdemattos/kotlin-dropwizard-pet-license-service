@@ -18,6 +18,7 @@ This project features:
 
 - PostgreSQL (used 9.6.5)
 - Java Development Kit 1.8.0
+- Maven 3.x.x
 
 This service requires a database on localhost with the following configuration:
 
@@ -52,7 +53,7 @@ CREATE DATABASE petLicense-dev
 
 ## Run Dropwizard Database Migrations
 
-On first load, the Dropwizard database migrations need to be run **before running or testing the server**.
+Before running or testing the server, Dropwizard database migrations need to be run.
 
 There are two ways you can do this:
 
@@ -69,6 +70,10 @@ There are two ways you can do this:
 Two options:
 
 1. Use your favorite IDE to make a run configuration using junit:
+
+    - **Test kind**: All in package
+    - **package**: com.acme.petlicense
+
 2. Run `mvn test`.
 
 ## Run Server (Development)
